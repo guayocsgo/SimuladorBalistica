@@ -3,7 +3,7 @@ using UnityEngine;
 public class Launcher : MonoBehaviour
 {
     [Header("Referencias")]
-    public GameObject[] proyectilesPrefabs; // arrastrás acá los distintos tipos
+    public GameObject[] proyectilesPrefabs; 
     public Transform puntoDisparo;
 
     [Header("Configuración")]
