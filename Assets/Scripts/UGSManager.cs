@@ -1,3 +1,4 @@
+
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -45,8 +46,8 @@ public class UGSManager : MonoBehaviour
         HistorialDisparos historial = await CargarHistorial();
         historial.disparos.Add(nuevoDisparo);
 
-        string json = JsonUtility.ToJson(historial);
-        var data = new Dictionary<string, object> { { CLAVE_HISTORIAL, json } };
+        
+        var data = new Dictionary<string, object> { { CLAVE_HISTORIAL, historial } };
 
         try
         {
@@ -70,8 +71,8 @@ public class UGSManager : MonoBehaviour
 
             if (resultado.TryGetValue(CLAVE_HISTORIAL, out var item))
             {
-                string json = item.Value.GetAs<string>();
-                return JsonUtility.FromJson<HistorialDisparos>(json);
+                
+                return item.Value.GetAs<HistorialDisparos>();
             }
         }
         catch (System.Exception e)
